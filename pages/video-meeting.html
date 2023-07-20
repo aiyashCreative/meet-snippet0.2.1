@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Meeting Video screena</title>
+    <style>
+      .color {
+        color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1 class="color">Meeting Video Screena</h1>
+      <span class="color">This is testing page</span>
+      <button onclick="clickMe()">Click meee</button>
+
+      <span>so everything is working now</span>
+    </div>
+    <script>
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const meeting_id = urlParams.get("meeting_id");
+      const meeting_token = urlParams.get("meeting_token");
+      console.log(meeting_id, meeting_token);
+    </script>
+  </body>
+</html>

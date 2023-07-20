@@ -1,0 +1,115 @@
+<style>
+    .configuration-position {
+        position: absolute;
+        top: 7vh;
+        /* left: 13px; */
+    }
+
+    #configuration-cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #222d46f2;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(10px);
+    }
+
+    #configuration {
+        z-index: 6;
+    }
+
+    .mouse {
+        margin-top: 27px
+    }
+
+    .video-frame {
+        width: 100%
+    }
+
+    .moving-video-frame {
+        position: relative;
+        height: 200px;
+        left: -101px;
+        top: 0;
+    }
+    .moving-outer-frame {
+        border-radius: 130px;
+        width: 200px !important;
+        height: 200px !important;
+        overflow: hidden;
+    }
+    .remote-moving-outer-frame {
+        border: 3px solid green;
+    }
+    .local-moving-outer-frame {
+        border: 3px solid rgb(255, 255, 255);
+    }
+    .remote-cursor-png-div {
+        position: absolute;
+        /* background: green; */
+    }
+    .remote-cursor {
+        width: 20px;
+        filter: invert(100%);
+        -webkit-filter: invert(100%);
+        position: relative;
+        bottom: 27px;
+        left: 18px;
+    }
+    .user-names {
+        color: white;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: capitalize;
+    }
+    #videoContainer {
+        margin-bottom: 20vh;
+    }
+    .btn-submit {
+        outline: none;
+        border: none;
+    }
+    .button-div {
+        width: 100%;
+        background-color: #ffffff8f;
+        border-radius: 27px;
+    }
+    .config-btn-circle {
+        border-radius: 100% !important;
+        background: #fff;
+        color: #222c46;
+        padding: 9px 12px;
+    }
+    .cursor-img {
+        width: 23px;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+<button id="rejoin" onclick="mouse.hide()" class="hidden" style="position: absolute;">Rejoin</button>
+<div id="configuration-cover" class="hidden"></div>
+<div id="configuration" class="configuration-position container-fluid">
+    <span id="wait-text" class="text-light">Please wait...</span>
+    <div id="grid-screen" class="hidden">
+        <div id="videoContainer" class="row"></div>
+        <div id="controls" class="row">
+            <div class="col-10">
+                <button type="button" class="btn btn-submit btn-lg text-light" onclick="meetingObj.toggle.mic()">
+                    <i id="mic-icon" class="fa-solid fa-microphone"></i>
+                </button>
+                <button type="button" class="btn btn-submit btn-lg text-light" onclick="meetingObj.toggle.webCam()">
+                    <i id="webcam-icon" class="fas fa-video"></i>
+                </button>
+                <button id="leaveBtn" class="btn btn-submit btn-lg btn-danger" onclick="meetingObj.leaveMeeting()">Leave</button>
+            </div>
+            <div class="col-2 text-right">
+                <button id="show-cursor" class="btn btn-submit config-btn-circle hidden" onclick="mouse.show()">
+                    <img class="cursor-img" src="https://cdn.jsdelivr.net/gh/aiyashCreative/meet-snippet0.2.1/assets/cursor.png"/>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

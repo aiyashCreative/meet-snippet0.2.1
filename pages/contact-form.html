@@ -1,0 +1,186 @@
+<style>
+    .form-position {
+        position: absolute;
+        top: 14vh;
+        left: 13px;
+        z-index: 9999;
+    }
+    /* ::placeholder {
+    color: whitesmoke !important;
+  } */
+    .form-control {
+        /* color: whitesmoke !important; */
+        outline: none;
+        background: #ffffff;
+        border: none;
+        /* border-bottom: 2px solid #c57ee4; */
+        border-radius: 14px;
+    }
+    .form-control:focus {
+        outline: none !important;
+        background: #ffffff;
+        border: none;
+        /* border-bottom: 2px solid #c57ee4; */
+    }
+    .btn-submit {
+        /* background-color: #b800c8; */
+        /* color: whitesmoke; */
+        outline: none;
+        border: none;
+    }
+    .modal-content {
+        /* width: 320px; */
+        border: none;
+        background: none;
+    }
+    #marketrix-cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #ffffff91;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(10px);
+    }
+    #contact-form {
+        z-index: 6;
+    }
+    #videoCam {
+        width: 200px;
+        border-radius: 100%;
+    }
+    .title-one {
+        font-weight: 700;
+        font-size: 21px;
+    }
+    .title-two {
+        font-weight: 600;
+    }
+    .button-div {
+        width: 100%;
+        background-color: #ffffff8f;
+        border-radius: 27px;
+    }
+    .btn-circle {
+        border-radius: 100% !important;
+        background: #f6f6f6;
+        padding: 12px 15px;
+    }
+    .btn-connect {
+        background: #f6f6f6;
+        border-radius: 20px 20px 20px 20px;
+    }
+
+    /* js model started here */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+    }
+
+    .marketrix-modal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.4rem;
+        width: 450px;
+        padding: 1.3rem;
+        min-height: 250px;
+        position: absolute;
+        z-index: 2;
+        top: 20%;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+    }
+
+    .marketrix-modal .marketrix-flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff91;
+        backdrop-filter: blur(3px);
+        z-index: 1;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+<div class="form-position hidden" id="marketrix-modal-container">
+    <section class="marketrix-modal">
+        <div class="marketrix-flex">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" onclick="closeModal()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form">
+                            <div class="form-group">
+                                <span class="title-one">We are here to support you!</span>
+                            </div>
+                            <div class="form-group">
+                                <span class="title-two">
+                                    Inorder to get started, we'd like to collect some information.
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <input name="name" type="text" class="form-control shadow-lg" placeholder="Your name"/>
+                            </div>
+                            <div class="form-group">
+                                <input name="email" type="text" class="form-control shadow-lg" placeholder="Work email"/>
+                            </div>
+                            <div class="form-group">
+                                <input name="phone_no" type="text" class="form-control shadow-lg" placeholder="Phone"/>
+                            </div>
+                            <div class="form-group">
+                                <select name="inquiry_type" class="form-control" aria-label="Default select example">
+                                    <option selected="selected">Select a Inquiry Type:</option>
+                                    <option value="Account">Account</option>
+                                    <option value="Billing">Billing</option>
+                                    <option value="Refunds">Refunds</option>
+                                    <option value="General">General</option>
+                                    <option value="Feature">Feature</option>
+                                    <option value="Integration">Integration</option>
+                                    <option value="Product">Product</option>
+                                    <option value="Technical">Technical</option>
+                                </select>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group button-div row p-2">
+                            <button type="button" class="btn btn-submit btn-circle col-2 mr-2 shadow-lg" onclick="closeModal()">
+                                <i class="fa-solid fa-microphone"></i>
+                            </button>
+                            <button type="button" class="btn btn-submit btn-circle col-2 mr-2 shadow-lg" onclick="openCam()">
+                                <i class="fas fa-video"></i>
+                            </button>
+                            <button type="button" class="btn btn-submit col btn-connect shadow-lg" onclick="submit()">
+                                <i class="fa fa-headphones" aria-hidden="true"></i>
+                                connect
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="overlay hidden"></div>

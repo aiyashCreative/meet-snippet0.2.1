@@ -1,0 +1,124 @@
+<style>
+  ::placeholder {
+    color: whitesmoke !important;
+  }
+  .form-control {
+    color: whitesmoke !important;
+    outline: none;
+    background: #ffffff00;
+    border: none;
+    border-bottom: 2px solid #c57ee4;
+  }
+  .form-control:focus {
+    outline: none !important;
+    background: #ffffff00;
+    border: none;
+    border-bottom: 2px solid #c57ee4;
+  }
+  .btn-submit {
+    background-color: #b800c8;
+    color: whitesmoke;
+    outline: none;
+    border: none;
+  }
+  .modal-content {
+    border: none;
+    background: rgb(144, 13, 156);
+    background: linear-gradient(
+      343deg,
+      rgba(144, 13, 156, 1) 14%,
+      rgba(217, 176, 235, 1) 100%
+    );
+  }
+  .modal-header {
+    border-bottom: 1px solid #b800c86e;
+  }
+  .modal-footer {
+    border-top: 1px solid #ca38f8;
+  }
+  .text-purple {
+    color: #900d9c;
+  }
+</style>
+<div class="modal" tabindex="-1">
+  <div class="modal-dialog shadow-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-purple">Contact us</h5>
+        <button type="button" class="close" onclick="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <div class="form-group">
+            <input
+              name="name"
+              type="text"
+              class="form-control"
+              placeholder="Name"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              name="designation"
+              type="text"
+              class="form-control"
+              placeholder="Designation"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              placeholder="Email"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="company"
+              placeholder="Company"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="phone"
+              placeholder="Phone"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="inquery"
+              placeholder="Inquery"
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+              rows="2"
+              type="text"
+              class="form-control"
+              name="message"
+              placeholder="Enter message..."
+            ></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-block btn-submit"
+          onclick="submit()"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
